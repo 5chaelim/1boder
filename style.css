@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0;}
+
+.loader{
+    background-color: #e676b7;
+    height: 100vh; /* 보이는 화면높이의 100%를 채움 */
+}
+.loader .loader_blob{
+    width: 480PX;
+    height: 480PX;
+    background-color: #FFF;
+    overflow: hidden;
+    position: relative;
+    left: calc(50% - 240px);
+    top: calc(50% - 240px);
+    /* 수평H 수직V 왼쪽L 오른쪽R 위쪽U 아래쪽T */
+    /* border-radius: 20px; tl, tr, br, bl */
+    /* border-radius: 20px 100px; tl,br/tr,bl */
+    /* border-radius: 20px / 100px; htl, htr, hbr, hbl/vtl, vtr, vbr, vbl */
+    border-radius: 49% 51% 63% 37% / 39% 51% 49% 61% ;
+    animation: go 6s linear infinite alternate ;
+}
+.loader .loader_blob img{
+    width: 100%;
+}
+
+@keyframes go{
+    0%{border-radius: 49% 51% 63% 37% / 39% 51% 49% 61% ;
+    transform: scale(0.98);}
+    50%{border-radius: 61% 39% 52% 48% / 49% 45% 55% 51%   ;}
+    100%{border-radius: 52% 48% 24% 76% / 58% 45% 55% 42%  ;
+        transform: scale(1.12);}
+}
+
+.loader .ro{
+    width: 480PX;
+    height: 480PX;
+    position: absolute;
+    left: calc(50% - 240px);
+    top: calc(50% - 240px);
+    animation: rotate 6s linear infinite alternate ;
+}
+.loader .ro .loader_blob2{
+    width: 480PX;
+    height: 480PX;
+    border: 1px solid #FFF;
+    animation: go 6s linear infinite alternate ;
+}
+
+@keyframes rotate{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
